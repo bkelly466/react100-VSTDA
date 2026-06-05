@@ -17,6 +17,14 @@ function App() {
     setTodo([...todo, newTodo]);
   };
 
+  const updateTodo = (id, updatedText, updatedPriority) => {
+    console.log("Updating todo:", id);
+  };
+
+  const deleteTodo = (id) => {
+    console.log("Deleting todo:", id);
+  };
+
   return (
     <>
       <div className="container my-5 text-dark">
@@ -33,7 +41,7 @@ function App() {
           </div>
 
           <div className="col-md-8">
-            <TodoList todos={todo, updateTodo, deleteTodo} />
+            <TodoList todos={todo} updateTodo={updateTodo} deleteTodo={deleteTodo} />
           </div>
         </div>
       </div>

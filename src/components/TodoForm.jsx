@@ -9,7 +9,7 @@ function TodoForm({ addTodo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!taskText.trim()) return; 
-    addTodo([taskText, priority]);
+    addTodo(taskText, priority);
     setTaskText('');
     setPriority(3)
   }
@@ -41,7 +41,8 @@ function TodoForm({ addTodo }) {
               id="create-todo-priority"
               data-testid="create-todo-priority" 
               className="form-select"
-              onChange={(e) => setPriority(e.target.value)}
+              value={priority}
+              onChange={(e) => setPriority(Number(e.target.value))}
             >
               <option value="1">1 (High)</option>
               <option value="2">2 (Medium)</option>
