@@ -6,7 +6,7 @@ function TodoItem({ todo, updateTodo, deleteTodo }) {
     3: 'border-success'  // Green
   };
 
-  const borderColor = priorityColors[todo.priority] || 'border-secondary';
+  const borderColor = priorityColors[Number(todo.priority)] || 'border-secondary';
 
   return (
     <>
