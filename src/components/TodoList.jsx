@@ -11,7 +11,7 @@ function TodoList({ todos, updateTodo, deleteTodo }) {
               <p className="mb-0">No tasks found. Add a task to get started!</p>
             ) : (
               todos.map((todo) => (
-                <TopSpot
+                <TodoItem
                     id={todo.id}
                     text={todo.text}
                     priority={todo.priority}
