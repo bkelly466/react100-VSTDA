@@ -1,8 +1,12 @@
 import './App.css'
+import {useState} from "react";
 
 function App() {
   // Add your code here
-  
+  const [todo, setTodo] = useState([]);
+  const [taskText, setTaskText] = useState();
+  const [priority, setPriority] = useState(3);
+
   return (
     <>
       <div className="container my-5 text-dark">
@@ -30,6 +34,7 @@ function App() {
                     className="form-control" 
                     rows="3"
                     placeholder="Enter your task details..."
+                    onChange={(e) => setTaskText(e.target.value)}
                   />
                 </div>
 
@@ -39,6 +44,7 @@ function App() {
                     id="create-todo-priority"
                     data-testid="create-todo-priority" 
                     className="form-select"
+                    onChange={(e) => setPriority(e.target.value)}
                   >
                     <option value="1">1 (High)</option>
                     <option value="2">2 (Medium)</option>
