@@ -12,13 +12,12 @@ function TodoList({ todos, updateTodo, deleteTodo }) {
             ) : (
               todos.map((todo) => (
                 <TodoItem
-                    id={todo.id}
-                    text={todo.text}
-                    priority={todo.priority}
+                    key={todo.id}
+                    todo={todo}
+                    updateTodo={updateTodo}
+                    deleteTodo={deleteTodo}
                 />
-            ))
-            )
-            }
+            )))}
           </div>
         </div>
       </div>

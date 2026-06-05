@@ -33,7 +33,7 @@ function App() {
           </div>
 
           <div className="col-md-8">
-            <TodoList todos={todo} />
+            <TodoList todos={todo, updateTodo, deleteTodo} />
           </div>
         </div>
       </div>
