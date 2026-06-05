@@ -6,11 +6,12 @@ function TodoForm({ addTodo }) {
   const [priority, setPriority] = useState(3);
 
   //Logic for form submission
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!taskText.trim()) return; 
-    setTodo([...todo, newTodo]);
-    setTaskText('')
+    addTodo([taskText, priority]);
+    setTaskText('');
+    setPriority(3)
   }
 
   return (
@@ -23,7 +24,7 @@ function TodoForm({ addTodo }) {
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="creat-todo-text" className="form-label fw-semibold">I want to...</label>
-            <input 
+            <textarea 
               id="creat-todo-text" 
               data-testid="creat-todo-text"   
               className="form-control" 

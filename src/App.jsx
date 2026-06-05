@@ -6,7 +6,16 @@ function App() {
   // States held here
   const [todo, setTodo] = useState([]);
 
+  const handleAddTodo = (text, priority) => {
+    const newTodo = {
+      id: Date.now(), // Unique ID for React keys
+      text: text,
+      priority: Number(priority)
+    };
 
+    setTodo([...todo, newTodo]);
+  };
+  
   return (
     <>
       <div className="container my-5 text-dark">
