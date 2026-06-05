@@ -5,23 +5,7 @@ import TodoForm from './components/TodoForm';
 function App() {
   // States held here
   const [todo, setTodo] = useState([]);
-  const [taskText, setTaskText] = useState('');
-  const [priority, setPriority] = useState(3);
 
-
-  // logic for button click
-  const addTodo = () => {
-    if (!taskText.trim()) return; // Prevent adding empty tasks
-
-    const newTodo = {
-      id: Date.now(), // Unique ID for React keys
-      text: taskText,
-      priority: priority
-    };
-
-    setTodo([...todo, newTodo]);
-    setTaskText('')
-  }
 
   return (
     <>

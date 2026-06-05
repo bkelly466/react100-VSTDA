@@ -1,11 +1,14 @@
 import {useState} from 'react';
 
 function TodoForm({ addTodo }) {
+  //States held here
   const [taskText, setTaskText] = useState('');
   const [priority, setPriority] = useState(3);
 
-  const addTodo = () => {
-    if (!taskText.trim()) return; // Prevent adding empty tasks
+  //Logic for form submission
+  const handleSubmit = () => {
+    e.preventDefault();
+    if (!taskText.trim()) return; 
     setTodo([...todo, newTodo]);
     setTaskText('')
   }
@@ -45,7 +48,7 @@ function TodoForm({ addTodo }) {
             </select>
           </div>
 
-          <button className="btn btn-primary w-100 py-2 fw-bold" onClick={addTodo}>
+          <button className="btn btn-primary w-100 py-2 fw-bold" type="submit">
             Add Task
           </button>
         </form>
