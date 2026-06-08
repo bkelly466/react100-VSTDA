@@ -1,35 +1,39 @@
 function TodoItem({ todo, updateTodo, deleteTodo }) {
 
-  const priorityColors = {
-    1: 'border-danger',  // Red
-    2: 'border-warning', // Yellow
-    3: 'border-success'  // Green
-  };
+  let borderColor = '';
+  if (todo.priority === 1) {
+    borderColor = '#dc3545'; // Bootstrap Danger (Red)
+  } else if (todo.priority === 2) {
+    borderColor = '#ffc107'; // Bootstrap Warning (Yellow)
+  } else {
+    borderColor = '#198754'; // Bootstrap Success (Green)
+  }
 
-  const borderColor = priorityColors[Number(todo.priority)] || 'border-secondary';
 
   return (
-    <>
-      <div className={`card mb-3 border-0 border-start ${borderColor} shadow-sm`}> 
-        <div className="card-body d-flex justify-content-between align-items-center">
-    
-          <div className="d-flex align-items-center">
-            <input type="checkbox" className="form-check-input me-3" />
-            <span className="fw-semibold">{todo.text}</span>
-          </div>
-
-        <div>
-          <button className="btn btn-sm btn-outline-primary me-2">
-            Edit
-          </button>
-          <button className="btn btn-sm btn-outline-danger">
-            Delete
-          </button>
-        </div>
-
-        </div>
+    <li 
+      className="list-group-item d-flex justify-content-between align-items-center mb-2 rounded border-start border-5 shadow-sm"
+      style={{ borderLeftColor: borderColor }}>
+      <div className="d-flex align-items-center gap-2">
+        <input 
+          className="form-check-input me-2" 
+          type="checkbox" 
+          id={`todo-check-${todo.id}`} 
+        />
+        <label className="form-check-label fw-medium text-dark" htmlFor={`todo-check-${todo.id}`}>
+          {todo.text}
+        </label>
       </div>
-    </>
+      
+      <div className="btn-group" role="group">
+        <button className="btn btn-sm btn-outline-secondary edit-todo" onClick={() => updateTodo(todo.id)}>
+          Edit
+        </button>
+        <button className="btn btn-sm btn-outline-danger delete-todo" onClick={() => deleteTodo(todo.id)}>
+          Delete
+        </button>
+      </div>
+  </li>
   );
 }
 
