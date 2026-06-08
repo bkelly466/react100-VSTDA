@@ -23,10 +23,10 @@ function TodoForm({ addTodo }) {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="creat-todo-text" className="form-label fw-semibold">I want to...</label>
+            <label htmlFor="create-todo-text" className="form-label fw-semibold">I want to...</label>
             <textarea 
-              id="creat-todo-text" 
-              data-testid="creat-todo-text"   
+              id="create-todo-text" 
+              data-testid="create-todo-text"   
               className="form-control" 
               rows="3"
               placeholder="Enter your task details..."

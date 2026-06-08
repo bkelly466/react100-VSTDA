@@ -18,11 +18,23 @@ function App() {
   };
 
   const updateTodo = (id, updatedText, updatedPriority) => {
-    console.log("Updating todo:", id);
+    const updatedTodos = todo.map(obj => {
+      if (item.id === id){
+        return {
+          ...obj,
+          text: updatedText,
+          priority: updatedPriority
+        }
+      } else {
+        return obj
+      }
+    })
+    setTodo(updatedTodos);
   };
 
   const deleteTodo = (id) => {
-    console.log("Deleting todo:", id);
+    let remaining = todo.filter(obj => obj.id !== id)
+    setTodo(remaining)
   };
 
   return (
@@ -30,7 +42,7 @@ function App() {
       <div className="container my-5 text-dark">
 
         <div className="mb-4">
-          <h1 className="display-5 fw-bold">Very Simple TODO App</h1>
+          <h1 className="display-5 fw-bold">Very Simple Todo App</h1>
           <p className="text-muted fs-5">Track all of the things</p>
         </div>
 
