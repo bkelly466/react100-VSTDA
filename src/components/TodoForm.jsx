@@ -50,7 +50,7 @@ function TodoForm({ addTodo }) {
             </select>
           </div>
 
-          <button className="btn btn-primary w-100 py-2 fw-bold" type="submit">
+          <button className="btn btn-primary w-100 py-2 fw-bold" type="submit" data-testid="create-todo">
             Add Task
           </button>
         </form>

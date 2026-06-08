@@ -21,7 +21,7 @@ function TodoItem({ todo, updateTodo, deleteTodo }) {
   return (
     <>
     {!isEditing? (
-      <li className={`d-flex justify-content-between align-items-center mb-3 p-3 bg-white rounded border border-start border-5 shadow-sm ${priorityBorderClass}`}>
+      <li data-testid="todo-item" className={`d-flex justify-content-between align-items-center mb-3 p-3 bg-white rounded border border-start border-5 shadow-sm ${priorityBorderClass}`}>
       
       <div className="d-flex align-items-center gap-2">
         <input 
@@ -36,12 +36,14 @@ function TodoItem({ todo, updateTodo, deleteTodo }) {
       
       <div className="btn-group" role="group">
         <button 
+          data-testid="edit-todo"
           className="btn btn-sm btn-outline-secondary edit-todo" 
           onClick={() => setIsEditing(true)}
         >
           Edit
         </button>
         <button 
+          data-testid="delete-todo"
           className="btn btn-sm btn-outline-danger delete-todo" 
           onClick={() => deleteTodo(todo.id)}
         >
@@ -86,8 +88,7 @@ function TodoItem({ todo, updateTodo, deleteTodo }) {
           </select>
           <button 
             data-testid="update-todo" 
-            className="btn btn-primary 
-            w-100 py-2 fw-bold" 
+            className="btn btn-primary w-100 py-2 fw-bold" 
             type="submit"
             onClick={() => {
               updateTodo(todo.id, taskText, priority); 

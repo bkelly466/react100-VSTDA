@@ -19,7 +19,7 @@ function App() {
 
   const updateTodo = (id, updatedText, updatedPriority) => {
     const updatedTodos = todo.map(obj => {
-      if (item.id === id){
+      if (obj.id === id){
         return {
           ...obj,
           text: updatedText,
